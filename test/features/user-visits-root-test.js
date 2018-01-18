@@ -7,4 +7,15 @@ describe('User visits root', () => {
       assert.equal(browser.getText('#items-container'), '');
     });
   });
+
+  describe('from the homepage', () => {
+  	it('can click a link to get to create.html', () => {
+  		const createText = 'Create';
+
+  		browser.url('/');
+  		browser.click('a[href="create.html"]');
+
+  		assert.include(browser.getText('#create'), createText);
+  	})
+  })
 });
